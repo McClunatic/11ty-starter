@@ -3,3 +3,4 @@ node_modules/
 
 # 11ty build directories
 _site/
+dist/
