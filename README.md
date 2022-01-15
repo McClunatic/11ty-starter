@@ -54,3 +54,17 @@ the server picks up the CSS properly. I could alternatively have
 
 in `.eleventy.js`, but having `tailwindcss` handle relocation to `dist/`
 directory seems more straightforward.
+
+## Getting VS Code to Recognize Tailwind's `@apply`
+
+Visual Studio (VS) Code won't recognize `@apply` out of the box. Instead,
+you'll see a warning from the CSS Language Server:
+`Unknown at rule @apply css(unknownAtRules)`. Fortunately, VS Code
+supports
+[Custom Data for its CSS Language Service](https://github.com/Microsoft/vscode-css-languageservice/blob/main/docs/customData.md). In this repository, I committed settings in a `.vscode/`
+directory to specify a custom data file that defines three Tailwind CSS
+directives:
+
+* `@tailwind`
+* `@layer`
+* `@apply`
