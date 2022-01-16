@@ -1,0 +1,17 @@
+@import url("fonts/noto-sans/400.css");
+@import url("fonts/noto-sans-mono/400.css");
+@import url("fonts/noto-sans-jp/400.css");
+@import url("fonts/noto-serif/400.css");
+@import url("fonts/noto-serif-jp/400.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.markdown h1 {
+  @apply text-3xl font-bold underline;
+}
+
+.markdown p {
+  @apply mt-4;
+}
