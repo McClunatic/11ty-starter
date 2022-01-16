@@ -97,3 +97,39 @@ include:
 
   /* clip */
 ```
+
+## Adding navigation
+
+I leaned on the official
+[11ty navigation plugin](https://www.11ty.dev/docs/plugins/navigation/#navigation-plugin)
+for this. Setup was simple. Installation:
+
+```bash
+npm i -D @11ty/eleventy-nagivation
+```
+
+Addition to `.eleventy.js`:
+
+```js
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+};
+```
+
+From there, I just adjusted my base layout (`base.html`) to arrange the
+`<body>` like this:
+
+```html
+    <!-- snip -->
+  <body>
+    <nav>
+      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
+    </nav>
+    <main class="markdown">
+      {{ content }}
+    </main>
+  </body>
+    <!-- snip -->
+```
