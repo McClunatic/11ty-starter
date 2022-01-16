@@ -1,3 +1,5 @@
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
+
 module.exports = function(eleventyConfig) {
 
   ["sans", "sans-mono", "sans-jp", "serif", "serif-jp"].map(suffix => {
@@ -6,10 +8,12 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy({[src]: dst})
   })
 
+  eleventyConfig.addPlugin(eleventyNavigationPlugin)
+
   return {
     dir: {
       input: 'src',
       output: 'dist',
     }
   }
-};
+}
