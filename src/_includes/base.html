@@ -11,13 +11,13 @@ options:
     <link href="/css/output.css" rel="stylesheet">
   </head>
   <body>
-    <div class="grid grid-rows-mobile md:grid-rows-four grid-cols-mobile md:grid-cols-two">
+    <div class="h-screen grid grid-rows-mobile md:grid-rows-four grid-cols-mobile md:grid-cols-two">
       <header class="col-span-full">Header</header>
-      <nav class="breadcrumbs flex col-span-full">
+      <nav class="breadcrumbs flex col-span-full p-4">
         {% assign crumbs = collections.all | eleventyNavigationBreadcrumb: eleventyNavigation.key, options %}
         {{ crumbs | eleventyNavigationToHtml }}
       </nav>
-      <aside class="row-start-4 md:row-start-3">
+      <aside class="row-start-4 md:row-start-3 p-4">
         <nav>
           {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
         </nav>
