@@ -1,8 +1,10 @@
 ---
 layout: base.html
-title: 11ty -- Docs Made Easy
+title: Overview
 eleventyNavigation:
   key: overview
+  title: Overview
+  order: 1
 ---
 
 # Overview

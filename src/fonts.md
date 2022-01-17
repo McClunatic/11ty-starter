@@ -4,6 +4,7 @@ tags: page
 title: Fonts
 eleventyNavigation:
   key: fonts
+  title: Fonts
   parent: details
 ---
 
