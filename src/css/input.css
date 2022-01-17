@@ -19,11 +19,3 @@ nav.breadcrumbs li:not(:last-child) > a::after {
 nav:not(.breadcrumbs) li > ul {
   padding-left: 1em;
 }
-
-.markdown h1 {
-  @apply text-3xl font-bold underline;
-}
-
-.markdown p {
-  @apply mt-4;
-}
