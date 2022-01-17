@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "tailwind:watch": "npx tailwindcss -i ./src/css/input.css -o ./dist/css/output.css --watch",
+    "11ty:serve": "npx @11ty/eleventy --serve",
+    "dev": "concurrently \"npm:tailwind:watch\" \"npm:11ty:serve\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
