@@ -8,6 +8,18 @@
 @tailwind components;
 @tailwind utilities;
 
+nav.breadcrumbs > ul {
+  @apply flex list-none;
+}
+
+nav.breadcrumbs li:not(:last-child) > a::after {
+  content: '>';
+}
+
+nav:not(.breadcrumbs) li > ul {
+  padding-left: 1em;
+}
+
 .markdown h1 {
   @apply text-3xl font-bold underline;
 }

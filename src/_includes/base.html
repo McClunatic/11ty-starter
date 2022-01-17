@@ -13,7 +13,7 @@ options:
   <body>
     <div class="grid grid-rows-mobile md:grid-rows-four grid-cols-mobile md:grid-cols-two">
       <header class="col-span-full">Header</header>
-      <nav class="flex col-span-full">
+      <nav class="breadcrumbs flex col-span-full">
         {% assign crumbs = collections.all | eleventyNavigationBreadcrumb: eleventyNavigation.key, options %}
         {{ crumbs | eleventyNavigationToHtml }}
       </nav>
