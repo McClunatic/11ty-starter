@@ -12,8 +12,19 @@ options:
   </head>
   <body>
     <div class="h-screen grid grid-rows-mobile md:grid-rows-four grid-cols-mobile md:grid-cols-two">
-      <header class="col-span-full p-4">
-        <a href="/" aria-label="11ty Starter"><img src="/assets/logoipsum-logo-8.svg"></a>
+      <header class="flex justify-between items-center col-span-full p-4 bg-slate-200">
+        <a href="/" aria-label="11ty Starter">
+          <img src="/assets/logoipsum-logo-8.svg">
+        </a>
+        <div class="border-2 rounded border-slate-800 bg-white">
+          <input id="site-search" type="search" class="m-2">
+          <label for="site-search">
+            <img src="/assets/magnifier.svg" class="inline px-1 h-[1rem]">
+          </label>
+        </div>
+        <a href="/https://github.com/McClunatic/11ty-starter" aria-label="11ty Starter GitHub">
+          <img src="/assets/github.svg">
+        </a>
       </header>
       <nav class="breadcrumbs flex col-span-full p-4">
         {% assign crumbs = collections.all | eleventyNavigationBreadcrumb: eleventyNavigation.key, options %}
