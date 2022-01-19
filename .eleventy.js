@@ -7,6 +7,7 @@ module.exports = function(eleventyConfig) {
     const dst = `css/fonts/noto-${suffix}`
     eleventyConfig.addPassthroughCopy({[src]: dst})
   })
+  eleventyConfig.addPassthroughCopy('src/assets')
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
 

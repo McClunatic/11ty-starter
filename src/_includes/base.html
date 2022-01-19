@@ -12,7 +12,9 @@ options:
   </head>
   <body>
     <div class="h-screen grid grid-rows-mobile md:grid-rows-four grid-cols-mobile md:grid-cols-two">
-      <header class="col-span-full">Header</header>
+      <header class="col-span-full p-4">
+        <a href="/" aria-label="11ty Starter"><img src="/assets/logoipsum-logo-8.svg"></a>
+      </header>
       <nav class="breadcrumbs flex col-span-full p-4">
         {% assign crumbs = collections.all | eleventyNavigationBreadcrumb: eleventyNavigation.key, options %}
         {{ crumbs | eleventyNavigationToHtml }}
