@@ -20,6 +20,14 @@ nav.breadcrumbs li:not(:last-child) > a {
   @apply text-sky-500 after:inline-block after:relative after:top-0.5 after:h-4 after:w-4 after:mx-2 after:bg-chevron after:text-slate-800;
 }
 
+nav:not(.breadcrumbs) li {
+  @apply py-1;
+}
+
 nav:not(.breadcrumbs) li > ul {
-  padding-left: 1em;
+  @apply pl-4;
+}
+
+nav:not(.breadcrumbs) a {
+  @apply hover:text-sky-500;
 }
