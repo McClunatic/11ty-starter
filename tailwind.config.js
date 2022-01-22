@@ -1,5 +1,6 @@
 module.exports = {
   content: ['./src/**/*.html'],
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: ['Noto Sans', 'sans-serif'],
@@ -8,6 +9,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'chevron': 'url("/assets/chevron.svg")',
+        'sun': 'url("/assets/sun.svg")',
+        'moon': 'url("/assets/moon.svg")',
       },
       gridTemplateColumns: {
         'mobile': '1fr',
