@@ -12,8 +12,12 @@ nav.breadcrumbs > ul {
   @apply flex list-none;
 }
 
-nav.breadcrumbs li:not(:last-child) > a::after {
-  content: '>';
+nav.breadcrumbs a {
+  @apply hover:underline;
+}
+
+nav.breadcrumbs li:not(:last-child) > a {
+  @apply text-sky-500 after:inline-block after:relative after:top-0.5 after:h-4 after:w-4 after:mx-2 after:bg-chevron after:text-slate-800;
 }
 
 nav:not(.breadcrumbs) li > ul {

@@ -6,6 +6,9 @@ module.exports = {
       serif: ['Noto Serif', 'serif'],
     },
     extend: {
+      backgroundImage: {
+        'chevron': 'url("/assets/chevron.svg")',
+      },
       gridTemplateColumns: {
         'mobile': '1fr',
         'two': '1fr 3fr',
