@@ -10,21 +10,13 @@ options:
     <title>{{ title }}</title>
     <link href="/css/output.css" rel="stylesheet">
     <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      // On page load or when changing themes, best to add inline in `head`
+      // to avoid FOUC
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark')
       } else {
         document.documentElement.classList.remove('dark')
       }
-
-      // Whenever the user explicitly chooses light mode
-      localStorage.theme = 'light'
-
-      // Whenever the user explicitly chooses dark mode
-      localStorage.theme = 'dark'
-
-      // Whenever the user explicitly chooses to respect the OS preference
-      localStorage.removeItem('theme')
     </script>
   </head>
   <body>
@@ -77,10 +69,10 @@ options:
       <main class="prose dark:prose-invert row-start-3 col-start-1 md:col-start-2">
         {{ content }}
       </main>
-      <footer class="flex justify-between items-center col-span-full p-4 bg-slate-200 dark:bg-slate-800 border-t-2 border-slate-500">
+      <footer class="flex justify-between items-center col-span-full px-4 py-1 bg-slate-200 dark:bg-slate-800 border-t-2 border-slate-500">
         <a
-          href="/https://github.com/McClunatic/11ty-starter"
-          aria-label="11ty Starter GitHub"
+          href="https://www.11ty.dev/"
+          aria-label="11ty"
           class="flex items-center"
         >
           <span class="whitespace-nowrap">Built with</span>
@@ -94,15 +86,21 @@ options:
             </g>
           </svg>
         </a>
-        <button class="inline-block h-4 w-4">
-          <svg class="sun fill-slate-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <button id="dark-mode-btn" class="inline-block h-6 w-6">
+          <svg class="sun fill-slate-800 hover:fill-sky-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
           </svg>
-          <svg class="moon fill-slate-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <svg class="moon fill-slate-200 hover:fill-sky-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
             <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
           </svg>
         </button>
       </footer>
+
+      <script>
+        document.getElementById('dark-mode-btn').addEventListener('click', function() {
+          document.documentElement.classList.toggle('dark')
+        })
+      </script>
     </div>
   </body>
 </html>

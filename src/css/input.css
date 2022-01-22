@@ -36,3 +36,11 @@ nav:not(.breadcrumbs) a {
   stroke-width: 28;
   stroke-miterlimit: 10;
 }
+
+html.dark .sun {
+  @apply hidden;
+}
+
+html:not(.dark) .moon {
+  @apply hidden;
+}
