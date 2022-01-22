@@ -11,7 +11,6 @@ module.exports = function(eleventyConfig) {
   const prismSrc = 'node_modules/prismjs/themes'
   const prismDst = 'css/prismjs'
   eleventyConfig.addPassthroughCopy({[prismSrc]: prismDst})
-  eleventyConfig.addPassthroughCopy('src/assets')
 
   eleventyConfig.addPlugin(navigation)
   eleventyConfig.addPlugin(syntaxHighlight)
