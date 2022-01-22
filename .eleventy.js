@@ -1,4 +1,5 @@
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation")
+const navigation = require("@11ty/eleventy-navigation")
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 
 module.exports = function(eleventyConfig) {
 
@@ -7,9 +8,13 @@ module.exports = function(eleventyConfig) {
     const dst = `css/fonts/noto-${suffix}`
     eleventyConfig.addPassthroughCopy({[src]: dst})
   })
+  const prismSrc = 'node_modules/prismjs/themes'
+  const prismDst = 'css/prismjs'
+  eleventyConfig.addPassthroughCopy({[prismSrc]: prismDst})
   eleventyConfig.addPassthroughCopy('src/assets')
 
-  eleventyConfig.addPlugin(eleventyNavigationPlugin)
+  eleventyConfig.addPlugin(navigation)
+  eleventyConfig.addPlugin(syntaxHighlight)
 
   return {
     dir: {

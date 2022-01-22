@@ -3,6 +3,7 @@
 @import url("fonts/noto-sans-jp/400.css");
 @import url("fonts/noto-serif/400.css");
 @import url("fonts/noto-serif-jp/400.css");
+@import url("prismjs/prism-okaidia.min.css");
 
 @tailwind base;
 @tailwind components;
