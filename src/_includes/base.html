@@ -12,17 +12,21 @@ options:
   </head>
   <body>
     <div class="h-screen grid grid-rows-mobile md:grid-rows-four grid-cols-mobile md:grid-cols-two">
-      <header class="flex justify-between items-center col-span-full p-4 bg-slate-200">
-        <a href="/" aria-label="11ty Starter">
+      <header class="grid grid-cols-3 col-span-full p-4 bg-slate-200">
+        <a href="/" aria-label="11ty Starter" class="justify-self-start">
           <img src="/assets/logoipsum-logo-8.svg">
         </a>
-        <div class="border-2 rounded border-slate-800 bg-white">
-          <input id="site-search" type="search" class="m-2">
-          <label for="site-search">
-            <img src="/assets/magnifier.svg" class="inline px-1 h-[1rem]">
+        <div class="relative flex items-center rounded-full h-10 bg-white border-transparent">
+          <label for="site-search" class="absolute left-2">
+            <img src="/assets/magnifier.svg" class="inline h-4">
           </label>
+          <input id="site-search" type="search" class="flex-auto rounded-full h-10 pl-8 pr-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-slate-800">
         </div>
-        <a href="/https://github.com/McClunatic/11ty-starter" aria-label="11ty Starter GitHub">
+        <a
+          href="/https://github.com/McClunatic/11ty-starter"
+          aria-label="11ty Starter GitHub"
+          class="justify-self-end"
+        >
           <img src="/assets/github.svg">
         </a>
       </header>
