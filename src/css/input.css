@@ -31,3 +31,9 @@ nav:not(.breadcrumbs) li > ul {
 nav:not(.breadcrumbs) a {
   @apply hover:text-sky-500;
 }
+
+.st0 {
+  @apply fill-slate-800 stroke-slate-800;
+  stroke-width: 28;
+  stroke-miterlimit: 10;
+}
