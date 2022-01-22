@@ -18,7 +18,7 @@ nav.breadcrumbs a {
 }
 
 nav.breadcrumbs li:not(:last-child) > a {
-  @apply text-sky-500 after:inline-block after:relative after:top-0.5 after:h-4 after:w-4 after:mx-2 after:bg-chevron after:text-slate-800;
+  @apply text-sky-500 after:inline-block after:mx-2 after:content-['\203A'] after:text-slate-800 after:dark:text-slate-200;
 }
 
 nav:not(.breadcrumbs) li {
