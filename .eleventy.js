@@ -1,7 +1,10 @@
 const navigation = require("@11ty/eleventy-navigation")
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 const toc = require("eleventy-plugin-toc")
-const md = require("markdown-it")().use(require("markdown-it-anchor"))
+const anchor = require("markdown-it-anchor")
+const md = require("markdown-it")().use(anchor, {
+  permalink: anchor.permalink.headerLink()
+})
 
 module.exports = function(eleventyConfig) {
 

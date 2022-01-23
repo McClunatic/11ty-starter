@@ -45,3 +45,7 @@ html.dark .sun {
 html:not(.dark) .moon {
   @apply hidden;
 }
+
+.header-anchor {
+  @apply no-underline hover:text-sky-500;
+}
