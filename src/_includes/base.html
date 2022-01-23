@@ -122,7 +122,7 @@ options:
       </nav>
       <aside class="row-start-4 md:row-start-3 p-4 border-r border-r-slate-300 dark:border-r-slate-700">
         <p class="text-slate-500 text-sm mb-2">Pages</p>
-        <nav>
+        <nav class="navigation">
           {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
         </nav>
       </aside>
@@ -195,6 +195,12 @@ options:
           .addEventListener("click", function () {
             document.documentElement.classList.toggle("dark")
           })
+        const nav = document.getElementsByClassName("navigation")[0]
+        for (const elem of nav.getElementsByTagName("a")) {
+          if (elem.getAttribute("href") === "{{ page.url }}") {
+            elem.classList.add("active")
+          }
+        }
       </script>
     </div>
   </body>

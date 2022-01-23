@@ -21,16 +21,23 @@ nav.breadcrumbs li:not(:last-child) > a {
   @apply text-sky-500 after:inline-block after:mx-2 after:content-['\203A'] after:text-slate-800 after:dark:text-slate-300;
 }
 
-nav:not(.breadcrumbs) li {
+nav:not(.breadcrumbs) li > ul {
+  @apply pl-4 pt-1;
+}
+
+nav:not(.breadcrumbs) li,
+nav:not(.breadcrumbs) a
+ {
   @apply py-1;
 }
 
-nav:not(.breadcrumbs) li > ul {
-  @apply pl-4;
+nav:not(.breadcrumbs) a
+ {
+  @apply px-2 text-slate-600 dark:text-slate-400  hover:text-sky-500 hover:dark:text-sky-500;
 }
 
-nav:not(.breadcrumbs) a {
-  @apply text-slate-600 dark:text-slate-400  hover:text-sky-500 hover:dark:text-sky-500;
+nav:not(.breadcrumbs) a.active {
+  @apply rounded text-slate-900 dark:text-white bg-sky-200 dark:bg-sky-800;
 }
 
 .eleventy {
