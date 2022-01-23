@@ -10,6 +10,7 @@ module.exports = {
       gridTemplateColumns: {
         'mobile': '1fr',
         'two': '1fr 3fr',
+        'three': '1fr 3fr 1fr',
       },
       gridTemplateRows: {
         'mobile': 'repeat(3, auto) 1fr auto',
