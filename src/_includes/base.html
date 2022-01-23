@@ -189,7 +189,8 @@ options:
         </button>
       </footer>
 
-      <script src="/js/lunr.min.js"></script>
+      <script src="/js/external/lunr.min.js"></script>
+      <script type="module" src="/js/main.js"></script>
       <script>
         document
           .getElementById("dark-mode-btn")
@@ -202,10 +203,10 @@ options:
             elem.classList.add("active")
           }
         }
-        let idx
-        fetch("/index.json")
-          .then(response => response.json())
-          .then(result => { idx = lunr.Index.load(result) })
+        // let idx
+        // fetch("/index.json")
+        //   .then(response => response.json())
+        //   .then(result => { idx = lunr.Index.load(result) })
       </script>
     </div>
   </body>

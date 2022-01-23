@@ -19,8 +19,9 @@ module.exports = function(eleventyConfig) {
   const prismDst = 'css/prismjs'
   eleventyConfig.addPassthroughCopy({[prismSrc]: prismDst})
   const lunrSrc = 'node_modules/lunr/lunr.min.js'
-  const lunrDst = 'js/lunr.min.js'
+  const lunrDst = 'js/external/lunr.min.js'
   eleventyConfig.addPassthroughCopy({[lunrSrc]: lunrDst})
+  eleventyConfig.addPassthroughCopy({'src/js': 'js'})
 
   eleventyConfig.setLibrary('md', md)
 
@@ -29,30 +30,14 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(toc)
 
   eleventyConfig.addFilter('indexify', collection => {
-    const idx = lunr(function() {
-      this.ref("id")
-      this.field("url")
-      this.field("title")
-      this.field("content")
-
-      this.metadataWhitelist = ["position"]
-
-      let id = 0
-      for (const entry of collection) {
-        content = HTMLParser.parse(entry.templateContent).rawText
-          .replace(/\n/g, '\\n')
-          .replace(/"/g, String.raw`\"`)
-
-        this.add({
-          id: id,
-          url: entry.url,
-          title: entry.data.title,
-          content: content,
-        }, this)
-        id += 1
+    return JSON.stringify(collection.map((entry, id) => (
+      {
+        id: id,
+        url: entry.url,
+        title: entry.data.title,
+        templateContent: entry.templateContent,
       }
-    })
-    return JSON.stringify(idx)
+    )))
   })
 
   return {
