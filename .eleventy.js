@@ -18,6 +18,9 @@ module.exports = function(eleventyConfig) {
   const prismSrc = 'node_modules/prismjs/themes'
   const prismDst = 'css/prismjs'
   eleventyConfig.addPassthroughCopy({[prismSrc]: prismDst})
+  const lunrSrc = 'node_modules/lunr/lunr.min.js'
+  const lunrDst = 'js/lunr.min.js'
+  eleventyConfig.addPassthroughCopy({[lunrSrc]: lunrDst})
 
   eleventyConfig.setLibrary('md', md)
 
