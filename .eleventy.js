@@ -49,6 +49,7 @@ module.exports = function(eleventyConfig) {
           title: entry.data.title,
           content: content,
         }, this)
+        id += 1
       }
     })
     return JSON.stringify(idx)
