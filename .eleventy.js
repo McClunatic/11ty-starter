@@ -5,6 +5,8 @@ const anchor = require("markdown-it-anchor")
 const md = require("markdown-it")().use(anchor, {
   permalink: anchor.permalink.headerLink()
 })
+const lunr = require('lunr')
+const HTMLParser = require('node-html-parser')
 
 module.exports = function(eleventyConfig) {
 
@@ -22,6 +24,32 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(navigation)
   eleventyConfig.addPlugin(syntaxHighlight)
   eleventyConfig.addPlugin(toc)
+
+  eleventyConfig.addFilter('indexify', collection => {
+    const idx = lunr(function() {
+      this.ref("id")
+      this.field("url")
+      this.field("title")
+      this.field("content")
+
+      this.metadataWhitelist = ["position"]
+
+      let id = 0
+      for (const entry of collection) {
+        content = HTMLParser.parse(entry.templateContent).rawText
+          .replace(/\n/g, '\\n')
+          .replace(/"/g, String.raw`\"`)
+
+        this.add({
+          id: id,
+          url: entry.url,
+          title: entry.data.title,
+          content: content,
+        }, this)
+      }
+    })
+    return JSON.stringify(idx)
+  })
 
   return {
     dir: {
