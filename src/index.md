@@ -1,5 +1,6 @@
 ---
 layout: base.html
+tags: page
 title: Overview
 eleventyNavigation:
   key: overview
