@@ -1,8 +1,9 @@
 import { collection, idx } from './modules/lunr-idx.js'
 
-const input = document.querySelector('#site-search')
-input.addEventListener('change', function(event) {
-  const results = idx.search(`content:${event.target.value}`)
+const form = document.querySelector('form')
+form.addEventListener('submit', function(event) {
+  const input = event.target.children['site-search']
+  const results = idx.search(`content:${input.value}`)
   results.forEach(res => {
     for ( const value of Object.values(res.matchData.metadata)) {
       const url = collection[res.ref].url
@@ -14,5 +15,6 @@ input.addEventListener('change', function(event) {
       }
     }
   })
+  input.value = ''
   event.preventDefault()
 })
