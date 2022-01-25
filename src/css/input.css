@@ -68,3 +68,7 @@ dialog a {
 body > div.modal-open {
   @apply blur;
 }
+
+mark.highlight {
+  @apply text-white bg-emerald-500;
+}

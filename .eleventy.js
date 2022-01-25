@@ -22,6 +22,10 @@ module.exports = function(eleventyConfig) {
   const lunrDst = 'js/external/lunr.min.js'
   eleventyConfig.addPassthroughCopy({[lunrSrc]: lunrDst})
   eleventyConfig.addPassthroughCopy({'src/js': 'js'})
+  const markSrc = 'node_modules/mark.js/dist/mark.min.js'
+  const markDst = 'js/external/mark.min.js'
+  eleventyConfig.addPassthroughCopy({[markSrc]: markDst})
+  eleventyConfig.addPassthroughCopy({'src/js': 'js'})
 
   eleventyConfig.setLibrary('md', md)
 
