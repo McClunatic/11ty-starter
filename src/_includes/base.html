@@ -29,6 +29,15 @@ eleventyComputed:
     </script>
   </head>
   <body>
+    <dialog id="search-dialog" class="mt-20 mr-10 open:flex open:flex-col rounded bg-slate-800 text-white">
+      <button id="search-close" class="self-end">
+        <svg width="20" height="20" viewBox="0 0 20 20">
+          <path d="M10 10l5.09-5.09L10 10l5.09 5.09L10 10zm0 0L4.91 4.91 10 10l-5.09 5.09L10 10z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+          </path>
+        </svg>
+      </button>
+      <ul id="search-results" class="divide-y divide-solid"></ul>
+    </dialog>
     <div
       class="h-screen grid grid-rows-mobile md:grid-rows-four grid-cols-mobile md:grid-cols-two lg:grid-cols-three bg-white dark:bg-slate-900 dark:text-white"
     >
@@ -85,7 +94,7 @@ eleventyComputed:
           <form
             class="relative flex items-center rounded-full h-10 border-transparent"
           >
-            <label for="site-search" class="absolute left-2">
+            <label for="search-input" class="absolute left-2">
               <svg
                 class="h-4 w-4 fill-slate-800 dark:fill-slate-100"
                 xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +106,7 @@ eleventyComputed:
               </svg>
             </label>
             <input
-              id="site-search"
+              id="search-input"
               type="search"
               class="flex-auto rounded-full h-10 pl-8 pr-2 bg-white dark:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-slate-800"
             />

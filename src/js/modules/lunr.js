@@ -21,12 +21,12 @@ const idx = lunr(function() {
   }
 })
 
-function logMatches(event) {
+function logSearchResults(event) {
   event.preventDefault()
   const input = event.target.children['site-search']
   const results = idx.search(`content:${input.value}`)
   results.forEach(res => {
-    for ( const [key, value] of Object.entries(res.matchData.metadata)) {
+    for (const [key, value] of Object.entries(res.matchData.metadata)) {
       const url = collection[res.ref].url
       for (const [start, end] of value.content.position) {
         console.log(`${key}: ${url}: ...${collection[res.ref].content.slice(
@@ -39,4 +39,40 @@ function logMatches(event) {
   input.value = ''
 }
 
-export default logMatches
+function setSearchResults(event) {
+  event.preventDefault()
+  const input = event.target.children['search-input']
+  const ul = document.querySelector('#search-results')
+
+  ul.innerHTML = ''
+
+  const results = idx.search(`content:${input.value}`)
+
+  if (results.length === 0) {
+      const li = document.createElement('li')
+      const text = document.createTextNode('No results found')
+      li.appendChild(text)
+      ul.appendChild(li)
+  }
+
+  results.forEach(res => {
+    const page = collection[res.ref]
+    for (const [term, value] of Object.entries(res.matchData.metadata)) {
+      const li = document.createElement('li')
+      const a = document.createElement('a')
+      a.setAttribute('href', `${page.url}?highlight=${term}`)
+      const count = value.content.position.length
+      const text = document.createTextNode(
+        `${page.title}: ${count} match${count === 1 ? '' : 'es'}`
+      )
+      a.appendChild(text)
+      li.appendChild(a)
+      ul.appendChild(li)
+    }
+  })
+
+  document.querySelector('#search-dialog').showModal()
+  document.querySelector('body > div').classList.add('modal-open')
+}
+
+export { logSearchResults, setSearchResults }

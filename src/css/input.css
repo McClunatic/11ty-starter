@@ -56,3 +56,15 @@ html:not(.dark) .moon {
 .header-anchor {
   @apply no-underline hover:text-sky-500;
 }
+
+dialog li {
+  @apply p-2;
+}
+
+dialog a {
+  @apply hover:text-sky-500;
+}
+
+body > div.modal-open {
+  @apply blur;
+}
