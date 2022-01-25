@@ -3,9 +3,9 @@ function highlightTerms() {
   if (!params.has('highlight'))
     return
 
-  const term = params.get('highlight')
+  const terms = params.get('highlight').split(',')
   const instance = new Mark(document.querySelector('body > div'))
-  instance.mark(term, { className: 'highlight' })
+  instance.mark(terms, { className: 'highlight' })
 }
 
 export default highlightTerms

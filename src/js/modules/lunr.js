@@ -23,7 +23,7 @@ const idx = lunr(function() {
 
 function logSearchResults(event) {
   event.preventDefault()
-  const input = event.target.children['site-search']
+  const input = event.target.children['search-input']
   const results = idx.search(`content:${input.value}`)
   results.forEach(res => {
     for (const [key, value] of Object.entries(res.matchData.metadata)) {
@@ -60,7 +60,10 @@ function setSearchResults(event) {
     for (const [term, value] of Object.entries(res.matchData.metadata)) {
       const li = document.createElement('li')
       const a = document.createElement('a')
-      a.setAttribute('href', `${page.url}?highlight=${term}`)
+      const params = new URLSearchParams({
+        highlight: [input.value, term]
+      })
+      a.setAttribute('href', `${page.url}?${params.toString()}`)
       const count = value.content.position.length
       const text = document.createTextNode(
         `${page.title}: ${count} match${count === 1 ? '' : 'es'}`
