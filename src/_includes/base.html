@@ -1,6 +1,10 @@
 ---
-options:
-  includeSelf: true
+eleventyComputed:
+  crumbOptions:
+    includeSelf: true
+  navOptions:
+    activeKey: "{{ eleventyNavigation.key }}"
+    activeListItemClass: active
 ---
 
 <!DOCTYPE html>
@@ -116,14 +120,13 @@ options:
         </div>
       </header>
       <nav class="breadcrumbs flex col-span-full p-4">
-        {% assign crumbs = collections.all | eleventyNavigationBreadcrumb:
-        eleventyNavigation.key, options %} {{ crumbs | eleventyNavigationToHtml
-        }}
+        {% assign crumbs = collections.page | eleventyNavigationBreadcrumb: eleventyNavigation.key, crumbOptions %}
+        {{ crumbs | eleventyNavigationToHtml }}
       </nav>
       <aside class="row-start-4 md:row-start-3 p-4 border-r border-r-slate-300 dark:border-r-slate-700">
         <p class="text-slate-500 text-sm mb-2">Pages</p>
         <nav class="navigation">
-          {{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
+          {{ collections.page | eleventyNavigation | eleventyNavigationToHtml: navOptions }}
         </nav>
       </aside>
       <aside class="hidden lg:block row-start-3 col-start-3 p-4 border-l border-l-slate-300 dark:border-l-slate-700">
@@ -197,16 +200,6 @@ options:
           .addEventListener("click", function () {
             document.documentElement.classList.toggle("dark")
           })
-        const nav = document.getElementsByClassName("navigation")[0]
-        for (const elem of nav.getElementsByTagName("a")) {
-          if (elem.getAttribute("href") === "{{ page.url }}") {
-            elem.classList.add("active")
-          }
-        }
-        // let idx
-        // fetch("/index.json")
-        //   .then(response => response.json())
-        //   .then(result => { idx = lunr.Index.load(result) })
       </script>
     </div>
   </body>

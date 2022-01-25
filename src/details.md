@@ -2,10 +2,7 @@
 layout: base.html
 tags: page
 title: Details
-eleventyNavigation:
-  key: details
-  title: Details
-  order: 3
+order: 3
 ---
 
 # Details

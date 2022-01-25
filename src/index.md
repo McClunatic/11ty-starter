@@ -2,10 +2,7 @@
 layout: base.html
 tags: page
 title: Overview
-eleventyNavigation:
-  key: overview
-  title: Overview
-  order: 1
+order: 1
 ---
 
 # Overview

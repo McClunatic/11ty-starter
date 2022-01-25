@@ -2,10 +2,7 @@
 layout: base.html
 tags: page
 title: Syntax highlighting
-eleventyNavigation:
-  key: syntax
-  title: Syntax highlighting
-  parent: details
+parent: details
 ---
 
 # Syntax highlighting

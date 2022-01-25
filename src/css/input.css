@@ -36,7 +36,7 @@ nav:not(.breadcrumbs) a
   @apply px-2 text-slate-600 dark:text-slate-400  hover:text-sky-500 hover:dark:text-sky-500;
 }
 
-nav:not(.breadcrumbs) a.active {
+nav:not(.breadcrumbs) li.active > a {
   @apply rounded text-slate-900 dark:text-white bg-sky-200 dark:bg-sky-800;
 }
 

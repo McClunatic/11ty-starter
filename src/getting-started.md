@@ -2,10 +2,7 @@
 layout: base.html
 tags: page
 title: Getting started
-eleventyNavigation:
-  key: starting
-  title: Getting started
-  order: 2
+order: 2
 ---
 
 # Getting started
