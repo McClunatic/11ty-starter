@@ -3,6 +3,10 @@ import highlightTerms from './modules/mark.js'
 
 const darkModeButton = document.getElementById('dark-mode-btn')
 darkModeButton.addEventListener('click', function () {
+  localStorage.setItem(
+    'theme',
+    document.documentElement.classList.contains('dark') ? 'light' : 'dark',
+  )
   document.documentElement.classList.toggle('dark')
 })
 
