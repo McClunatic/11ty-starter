@@ -365,3 +365,48 @@ In the `base.html` layout:
     <ul id="search-results"></ul>
   </dialog>
 ```
+
+### Highlighting search results
+
+As a little flourish, search results are highlighted on results pages
+with help from [mark.js](https://markjs.io/).
+
+The `setSearchResults()` function includes in results URLs
+a `highlight` parameter via query string:
+
+```js
+  // snip
+  for (const [term, value] of Object.entries(res.matchData.metadata)) {
+    // snip
+    const params = new URLSearchParams({
+      highlight: [input.value, term]
+    })
+    a.setAttribute('href', `${page.url}?${params.toString()}`)
+    // snip
+```
+
+That data is used in `src/js/modules/mark.js`:
+
+```js
+function highlightTerms() {
+  const params = (new URL(document.location)).searchParams
+  if (!params.has('highlight'))
+    return
+
+  const terms = params.get('highlight').split(',')
+  const instance = new Mark(document.querySelector('body > div'))
+  instance.mark(terms, { className: 'highlight' })
+}
+```
+
+Where `highlightTerms()` is finally put to use in `src/js/main.js`:
+
+```js
+if(document.readyState !== 'loading') {
+  highlightTerms()
+} else {
+  document.addEventListener('DOMContentLoaded', function() {
+    highlightTerms()
+  })
+}
+```
