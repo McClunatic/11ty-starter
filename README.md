@@ -133,3 +133,38 @@ From there, I just adjusted my base layout (`base.html`) to arrange the
   </body>
     <!-- snip -->
 ```
+
+# Adding a table of contents
+
+Not on the official plugins list, I used
+[eleventy-plugin-toc](https://github.com/jdsteinbach/eleventy-plugin-toc)
+to add a table of contents to the page. Note, headings will need to have
+anchor IDs for this to work, so I used
+[markdown-it](https://github.com/markdown-it/markdown-it) and
+[markdown-it-anchor](https://www.npmjs.com/package/markdown-it-anchor) too:
+
+
+```js
+const toc = require("eleventy-plugin-toc")
+const anchor = require("markdown-it-anchor")
+const md = require("markdown-it")().use(anchor, {
+  permalink: anchor.permalink.headerLink()
+})
+
+module.exports = function(eleventyConfig) {
+  eleventyConfig.setLibrary('md', md)
+  eleventyConfig.addPlugin(toc)
+};
+```
+
+Once added to `.eleventy.js`, I added a table of contents to the
+base layout (`base.html`) like this:
+
+```html
+    <!-- snip -->
+  <aside>
+    <p>On this page</p>
+    {{ content | toc }}
+  </aside>
+    <!-- snip -->
+```
