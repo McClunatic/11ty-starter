@@ -168,3 +168,25 @@ base layout (`base.html`) like this:
   </aside>
     <!-- snip -->
 ```
+
+## Adding syntax highlighting
+
+Another job for another official plugin, I added
+[eleventy-plugin-syntaxhighlight](https://github.com/11ty/eleventy-plugin-syntaxhighlight)
+to `.eleventy.js`:
+
+```js
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
+
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(syntaxHighlight)
+};
+```
+
+This plugin doesn't add [PrismJS](https://prismjs.com/index.html) themes
+for you, so I added that to the package as well, and selected
+Okaidia as my theme in `input.css`:
+
+```css
+@import url("prismjs/prism-okaidia.min.css");
+```
