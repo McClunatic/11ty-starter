@@ -37,6 +37,7 @@ for use site templates. An example of use from our site, which uses
 **Liquid** as its template language is below.
 
 ```html
+{% raw -%}
     <!-- snip -->
   <body>
     <nav>
@@ -47,6 +48,7 @@ for use site templates. An example of use from our site, which uses
     </main>
   </body>
     <!-- snip -->
+{% endraw -%}
 ```
 
 Here, all pages that include the `page` tag will be added inside the
@@ -60,11 +62,13 @@ The same plugin supports breadcrumbs too! Again, the following example
 from this site uses **Liquid** syntax:
 
 ```html
+{% raw -%}
     <!-- snip -->
     <nav class="breadcrumbs flex col-span-full p-4">
       {% assign crumbs = collections.page | eleventyNavigationBreadcrumb: eleventyNavigation.key %}
       {{ crumbs | eleventyNavigationToHtml }}
     </nav>
+{% endraw -%}
 ```
 
 Note too, the `eleventyNavigationBreadcrumb` filter supports further options,
@@ -113,12 +117,14 @@ Once added to `.eleventy.js`, you'll have access to another filter,
 `toc`, that's demonstrated in our site with a usage like this:
 
 ```html
+{% raw -%}
     <!-- snip -->
   <aside>
     <p>On this page</p>
     {{ content | toc }}
   </aside>
     <!-- snip -->
+{% endraw -%}
 ```
 
 Our navigation is up and running! Only one more feature to demonstrate,

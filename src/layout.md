@@ -21,6 +21,7 @@ might look like this:
 `awesome-layout.html`
 
 ```html
+{% raw -%}
 ---
 title: Awesome Site Great Job
 ---
@@ -36,6 +37,7 @@ title: Awesome Site Great Job
     {{ content }}
   </body>
 </html>
+{% endraw -%}
 ```
 
 The layout template will populate the `title` and `content` data with

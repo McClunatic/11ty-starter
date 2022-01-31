@@ -19,17 +19,19 @@ Adding site search with
 [lunr.js](https://lunrjs.com/) is a bit of a process. Let's walk
 through the steps.
 
-### Preparing data for a Lunr index
+### Preparing index data
 
 Lunr requires you to create an index to enable search, which we will
 do at build time rather than runtime. This site uses `lunr.liquid`
 as a template in its `src/` files with the following contents:
 
 ```liquid
+{% raw -%}
 ---
 permalink: /index.json
 ---
-{{ collections.page | indexify }}
+{{ collections.stuff | indexify }}
+{% endraw -%}
 ```
 
 This [permalink](https://www.11ty.dev/docs/permalinks/)
