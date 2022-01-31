@@ -72,7 +72,7 @@ directives:
 
 ## Adding fonts using `@fontsource` packages
 
-Adding fonts as developer dependencies is simple, and well documented at
+Adding fonts as developer dependencies is well documented at
 the [Fontsource Getting Started](https://fontsource.org/docs/getting-started)
 page. I selected five fonts:
 
