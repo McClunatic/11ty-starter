@@ -3,6 +3,7 @@ layout: base.html
 tags: page
 title: Syntax highlighting
 parent: details
+order: 2
 ---
 
 # Syntax highlighting
