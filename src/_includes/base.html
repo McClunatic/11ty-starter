@@ -132,18 +132,18 @@ eleventyComputed:
         {% assign crumbs = collections.page | eleventyNavigationBreadcrumb: eleventyNavigation.key, crumbOptions %}
         {{ crumbs | eleventyNavigationToHtml }}
       </nav>
-      <aside class="row-start-4 md:row-start-3 p-4 border-r border-r-slate-300 dark:border-r-slate-700">
+      <aside class="ml-8 row-start-4 md:row-start-3 p-4 border-r border-r-slate-300 dark:border-r-slate-700">
         <p class="text-slate-500 text-sm mb-2">Pages</p>
         <nav class="navigation">
           {{ collections.page | eleventyNavigation | eleventyNavigationToHtml: navOptions }}
         </nav>
       </aside>
-      <aside class="hidden lg:block row-start-3 col-start-3 p-4 border-l border-l-slate-300 dark:border-l-slate-700">
+      <aside class="hidden mr-8 lg:block row-start-3 col-start-3 p-4 border-l border-l-slate-300 dark:border-l-slate-700">
         <p class="text-slate-500 text-sm mb-2">On this page</p>
         {{ content | toc }}
       </aside>
       <main
-        class="prose dark:prose-invert row-start-3 col-start-1 md:col-start-2 p-4"
+        class="prose dark:prose-invert max-w-[80ch] row-start-3 col-start-1 md:col-start-2 p-4"
       >
         {{ content }}
       </main>
