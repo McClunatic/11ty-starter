@@ -19,11 +19,13 @@ There are a variety of Eleventy features and plugins demonstrated
 by this site. The pages of this section will dig a little into
 the details to highlight their use. Some of what's ahead:
 
-*
-*
-*
-*
+* Layout
+* Styles
+* Fonts
+* Syntax highlighting
+* Navigation
+* Site search
 
 Feel free to navigate from content links on the left, or to read
 on in order, click here to
-[read about its layout](/layout/)!
+[read about creating a layout](/layout/)!
