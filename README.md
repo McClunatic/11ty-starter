@@ -199,7 +199,7 @@ This was a bit of a trick! I decided to use
 ### Preparing data for a Lunr index
 
 Lunr requires you to create an index to enable search, and I decided to
-do that at build time rather than a runtime. I added `lunr.liquid`
+do that at build time rather than at runtime. I added `lunr.liquid`
 as a template to my `src/` files with the following contents:
 
 ```liquid
