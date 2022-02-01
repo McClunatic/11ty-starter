@@ -8,9 +8,9 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        'mobile': '1fr',
-        'two': '1fr 3fr',
-        'three': '1fr 3fr 1fr',
+        'mobile': '100%',
+        'two': '25% 75%',
+        'three': '22.5% 55% 22.5%',
       },
       gridTemplateRows: {
         'mobile': 'repeat(3, auto) 1fr auto',
