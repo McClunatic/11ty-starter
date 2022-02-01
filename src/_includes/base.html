@@ -42,7 +42,7 @@ eleventyComputed:
       class="min-h-screen grid grid-rows-mobile md:grid-rows-four grid-cols-mobile md:grid-cols-two xl:grid-cols-three bg-white dark:bg-slate-900 dark:text-white"
     >
       <header
-        class="flex items-center col-span-full p-4 bg-slate-300 dark:bg-slate-800 border-b-2 border-slate-500"
+        class="flex flex-wrap items-center col-span-full p-4 bg-slate-300 dark:bg-slate-800 border-b-2 border-slate-500"
       >
         <a href="/" aria-label="11ty Starter" class="justify-self-start flex-none">
           <svg
@@ -90,7 +90,12 @@ eleventyComputed:
             ></path>
           </svg>
         </a>
-        <div class="hidden md:flex items-center space-x-4 ml-auto">
+        <input
+          type="checkbox"
+          aria-label="Toggle header menu"
+          class="peer ml-auto md:m-0 text-xl appearance-none before:inline-block before:content-['\2630'] checked:before:content-['\2637'] text-slate-700 dark:text-slate-300 hover:before:text-sky-500 md:before:hidden"
+        >
+        <div class="hidden peer-checked:basis-full peer-checked:flex md:flex items-center space-x-4 ml-auto mt-4 md:mt-0">
           <form
             class="relative flex items-center rounded-full h-10 border-transparent"
           >
